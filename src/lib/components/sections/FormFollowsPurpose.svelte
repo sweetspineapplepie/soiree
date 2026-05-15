@@ -1,11 +1,11 @@
 <script lang="ts">
   import { reveal } from '$lib/actions/reveal';
-  import { product_front, product_interior, product_side } from '$lib/assets';
+  import { product_front, product_side, product_top_open } from '$lib/assets';
 
   const images = [
     product_front,
-    product_interior,
     product_side,
+    product_top_open,
   ];
 </script>
 

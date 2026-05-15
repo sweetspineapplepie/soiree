@@ -1,7 +1,7 @@
 <script lang="ts">
   import { reveal } from '$lib/actions/reveal';
   import { Truck, RotateCcw } from 'lucide-svelte';
-  import { packaging_unboxing } from '$lib/assets';
+  import { packaging_box, packaging_unboxing } from '$lib/assets';
 </script>
 
 <svelte:head>
@@ -66,13 +66,22 @@
         </div>
       </div>
 
-      <!-- Right image -->
-      <div use:reveal={{ delay: 0.2 }} class="overflow-hidden aspect-[4/5] rounded-3xl border border-[#2e2416] bg-[#141008]">
-        <img
-          src={packaging_unboxing}
-          alt="SUTTON No.01 packaging unboxing"
-          class="product-img w-full h-full object-cover"
-        />
+      <!-- Right images -->
+      <div class="grid grid-cols-1 gap-4">
+        <div use:reveal={{ delay: 0.2 }} class="overflow-hidden aspect-[4/5] rounded-3xl border border-[#2e2416] bg-[#141008]">
+          <img
+            src={packaging_box}
+            alt="SUTTON No.01 packaging box"
+            class="product-img w-full h-full object-cover"
+          />
+        </div>
+        <div use:reveal={{ delay: 0.3 }} class="overflow-hidden aspect-[4/5] rounded-3xl border border-[#2e2416] bg-[#141008]">
+          <img
+            src={packaging_unboxing}
+            alt="SUTTON No.01 unboxing scene"
+            class="product-img w-full h-full object-cover"
+          />
+        </div>
       </div>
     </div>
   </div>

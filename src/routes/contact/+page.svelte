@@ -1,7 +1,7 @@
 <script lang="ts">
   import { reveal } from '$lib/actions/reveal';
   import { AtSign, Link2, Mail } from 'lucide-svelte';
-  import { lifestyle_meeting } from '$lib/assets';
+  import { lifestyle_coffee_scene } from '$lib/assets';
 
   let form = $state({ name: '', email: '', subject: '', message: '' });
   let submitted = $state(false);
@@ -33,8 +33,8 @@
       </div>
       <div use:reveal={{ delay: 0.15 }} class="overflow-hidden aspect-[4/5] rounded-none border border-[#2e2416]">
         <img
-          src={lifestyle_meeting}
-          alt="Sutton bag lifestyle meeting scene"
+          src={lifestyle_coffee_scene}
+          alt="Sutton bag lifestyle coffee scene"
           class="product-img w-full h-full object-cover"
         />
       </div>

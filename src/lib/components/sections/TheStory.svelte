@@ -2,9 +2,9 @@
   import { reveal } from '$lib/actions/reveal';
   import {
     inspiration_tail_light,
+    iteration_sketch_02,
     lifestyle_coffee_scene,
     lifestyle_coworking,
-    lifestyle_meeting,
     lifestyle_walking,
   } from '$lib/assets';
 
@@ -17,9 +17,9 @@
 
   const images = [
     lifestyle_coworking,
-    lifestyle_coffee_scene,
+    iteration_sketch_02,
     lifestyle_walking,
-    lifestyle_meeting,
+    lifestyle_coffee_scene,
   ];
 </script>
 

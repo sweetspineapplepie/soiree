@@ -82,8 +82,8 @@
       <!-- Right image -->
       <div use:reveal={{ delay: 0.2 }} class="overflow-hidden aspect-[3/4] rounded-3xl border border-[#2e2416] bg-[#141008]">
         <img
-          src={care_storage}
-          alt="Care storage and protection for SUTTON No.01"
+          src={care_hardware_care}
+          alt="Care hardware for SUTTON No.01"
           class="product-img w-full h-full object-cover"
         />
       </div>

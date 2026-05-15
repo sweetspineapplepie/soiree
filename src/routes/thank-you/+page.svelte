@@ -31,7 +31,7 @@
       alt="Subtle premium texture background"
       class="w-full h-full object-cover blur-sm"
     />
-    <div class="absolute inset-0 bg-[#0d0b08]/85"></div>
+    <div class="absolute inset-0 bg-[#0d0b08]/90"></div>
   </div>
   <div class="relative z-10 text-center max-w-lg">
     <div style="opacity: 0;" data-ty-check class="flex justify-center mb-8">

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { reveal } from '$lib/actions/reveal';
   import EmailInput from '$lib/components/ui/EmailInput.svelte';
-  import { batch_02_teaser, product_front } from '$lib/assets';
+  import { batch_02_teaser, product_front, texture_noise } from '$lib/assets';
 
   let email = $state('');
   let submitted = $state(false);
@@ -19,7 +19,15 @@
 
 <div style="background-color: #0d0b08;" class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-6 py-24">
   <!-- Background image -->
-  <div class="absolute inset-0 z-0 opacity-20">
+  <div class="absolute inset-0 z-0 opacity-80 bg-black"></div>
+  <div class="absolute inset-0 z-10 opacity-30 pointer-events-none">
+    <img
+      src={texture_noise}
+      alt="Grain texture overlay"
+      class="w-full h-full object-cover"
+    />
+  </div>
+  <div class="absolute inset-0 z-0 opacity-40">
     <img
       src={batch_02_teaser}
       alt="Batch 02 teaser background"

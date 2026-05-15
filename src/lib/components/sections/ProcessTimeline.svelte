@@ -1,26 +1,27 @@
 <script lang="ts">
   import { reveal } from '$lib/actions/reveal';
-
-  const steps = [
-    { num: '01', label: 'IDEATION', desc: 'Feeling from life' },
-    { num: '02', label: 'SKETCH', desc: 'Drawing from sketch' },
-    { num: '03', label: 'PROTOTYPING', desc: 'Trying from prototype' },
-    { num: '04', label: 'REFINE', desc: 'Getting from refine' },
-    { num: '05', label: 'REAL LIFE', desc: "Making its way to yours" },
-  ];
-
   import {
+    detail_suede,
+    edition_tag,
+    inspiration_tail_light,
     iteration_sketch_01,
-    iteration_sketch_02,
-    iteration_material_board,
-    iteration_prototype,
+    lifestyle_walking,
   } from '$lib/assets';
 
+  const steps = [
+    { num: '01', label: 'INSPIRED', desc: 'Timeless lines' },
+    { num: '02', label: 'FROM SKETCH', desc: 'Raw ideation' },
+    { num: '03', label: 'CRAFTED', desc: 'Textured details' },
+    { num: '04', label: 'NUMBERED', desc: 'Edition ritual' },
+    { num: '05', label: 'MADE TO MOVE', desc: 'Everyday utility' },
+  ];
+
   const processImages = [
+    inspiration_tail_light,
     iteration_sketch_01,
-    iteration_sketch_02,
-    iteration_material_board,
-    iteration_prototype,
+    detail_suede,
+    edition_tag,
+    lifestyle_walking,
   ];
 </script>
 
@@ -34,11 +35,11 @@
     </div>
 
     <!-- Process images -->
-    <div use:reveal={{ delay: 0.15 }} class="grid grid-cols-2 lg:grid-cols-4 gap-3 mt-12 mb-12">
+    <div use:reveal={{ delay: 0.15 }} class="grid grid-cols-2 lg:grid-cols-5 gap-3 mt-12 mb-12">
       {#each processImages as src, i}
-        <div class="overflow-hidden aspect-video">
+        <div class="overflow-hidden aspect-[4/5] rounded-3xl border border-[#2e2416] bg-[#141008]">
           <img
-            {src}
+            src={src}
             alt="Process step {i + 1}"
             class="product-img w-full h-full object-cover"
           />
