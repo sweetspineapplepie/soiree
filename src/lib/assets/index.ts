@@ -1,124 +1,33 @@
-export const hero_main_desktop = new URL(
-  "../../assets/hero/hero-main-01.jpg",
-  import.meta.url,
-).href;
-export const hero_main_mobile = new URL(
-  "../../assets/hero/hero-mobile-01.jpg",
-  import.meta.url,
-).href;
-export const lifestyle_coworking = new URL(
-  "../../assets/story/lifestyle-coworking-01.jpg",
-  import.meta.url,
-).href;
-export const lifestyle_coffee_scene = new URL(
-  "../../assets/contact/lifestyle-coffee-01.jpg",
-  import.meta.url,
-).href;
-export const lifestyle_walking = new URL(
-  "../../assets/story/lifestyle-walking-01.jpg",
-  import.meta.url,
-).href;
-export const product_front = new URL(
-  "../../assets/details/product-front-01.jpg",
-  import.meta.url,
-).href;
-export const product_back = new URL(
-  "../../assets/details/product-back-01.jpg",
-  import.meta.url,
-).href;
-export const product_side = new URL(
-  "../../assets/details/product-side-01.jpg",
-  import.meta.url,
-).href;
-export const product_top_open = new URL(
-  "../../assets/details/product-top-open-01.jpg",
-  import.meta.url,
-).href;
-export const product_interior = new URL(
-  "../../assets/details/product-interior-01.jpg",
-  import.meta.url,
-).href;
-export const detail_suede = new URL(
-  "../../assets/details/detail-suede-01.jpg",
-  import.meta.url,
-).href;
-export const detail_zipper = new URL(
-  "../../assets/details/detail-zipper-01.jpg",
-  import.meta.url,
-).href;
-export const detail_hardware = new URL(
-  "../../assets/details/detail-hardware-01.jpg",
-  import.meta.url,
-).href;
-export const iteration_sketch_01 = new URL(
-  "../../assets/gallery/sketch-01.jpg",
-  import.meta.url,
-).href;
-export const iteration_sketch_02 = new URL(
-  "../../assets/gallery/sketch-02.jpg",
-  import.meta.url,
-).href;
-export const iteration_material_board = new URL(
-  "../../assets/gallery/iteration-material-board-01.jpg",
-  import.meta.url,
-).href;
-export const iteration_prototype = new URL(
-  "../../assets/gallery/iteration-prototype-01.jpg",
-  import.meta.url,
-).href;
-export const blueprint_iteration = new URL(
-  "../../assets/gallery/blueprint-01.jpg",
-  import.meta.url,
-).href;
-export const inspiration_tail_light = new URL(
-  "../../assets/story/inspiration-tail-light-01.jpg",
-  import.meta.url,
-).href;
-export const texture_leather = new URL(
-  "../../assets/faq/texture-leather-01.jpg",
-  import.meta.url,
-).href;
-export const texture_grain = new URL(
-  "../../assets/details/texture-grain-01.jpg",
-  import.meta.url,
-).href;
-export const texture_noise = new URL(
-  "../../assets/details/texture-noise-01.jpg",
-  import.meta.url,
-).href;
-export const edition_certificate = new URL(
-  "../../assets/edition/certificate-01.jpg",
-  import.meta.url,
-).href;
-export const edition_tag = new URL(
-  "../../assets/edition/tag-01.jpg",
-  import.meta.url,
-).href;
-export const packaging_box = new URL(
-  "../../assets/shipping/packaging-box-01.jpg",
-  import.meta.url,
-).href;
-export const packaging_unboxing = new URL(
-  "../../assets/shipping/packaging-unboxing-01.jpg",
-  import.meta.url,
-).href;
-export const care_cleaning = new URL(
-  "../../assets/care/cleaning-01.jpg",
-  import.meta.url,
-).href;
-export const care_storage = new URL(
-  "../../assets/care/storage-01.jpg",
-  import.meta.url,
-).href;
-export const care_suede_care = new URL(
-  "../../assets/care/suede-care-01.jpg",
-  import.meta.url,
-).href;
-export const care_hardware_care = new URL(
-  "../../assets/care/hardware-care-01.jpg",
-  import.meta.url,
-).href;
-export const batch_02_teaser = new URL(
-  "../../assets/coming-soon/batch-02-teaser-01.jpg",
-  import.meta.url,
-).href;
+export const hero_main_desktop = "/images/hero/hero-main-01.jpg";
+export const hero_main_mobile = "/images/hero/hero-mobile-01.jpg";
+export const lifestyle_coworking = "/images/story/lifestyle-coworking-01.jpg";
+export const lifestyle_coffee_scene = "/images/contact/lifestyle-coffee-01.jpg";
+export const lifestyle_walking = "/images/story/lifestyle-walking-01.jpg";
+export const product_front = "/images/details/product-front-01.jpg";
+export const product_back = "/images/details/product-back-01.jpg";
+export const product_side = "/images/details/product-side-01.jpg";
+export const product_top_open = "/images/details/product-top-open-01.jpg";
+export const product_interior = "/images/details/product-interior-01.jpg";
+export const detail_suede = "/images/details/detail-suede-01.jpg";
+export const detail_zipper = "/images/details/detail-zipper-01.jpg";
+export const detail_hardware = "/images/details/detail-hardware-01.jpg";
+export const iteration_sketch_01 = "/images/gallery/sketch-01.jpg";
+export const iteration_sketch_02 = "/images/gallery/sketch-02.jpg";
+export const iteration_material_board =
+  "/images/gallery/iteration-material-board-01.jpg";
+export const iteration_prototype = "/images/gallery/iteration-prototype-01.jpg";
+export const blueprint_iteration = "/images/gallery/blueprint-01.jpg";
+export const inspiration_tail_light =
+  "/images/story/inspiration-tail-light-01.jpg";
+export const texture_leather = "/images/faq/texture-leather-01.jpg";
+export const texture_grain = "/images/details/texture-grain-01.jpg";
+export const texture_noise = "/images/details/texture-noise-01.jpg";
+export const edition_certificate = "/images/edition/certificate-01.jpg";
+export const edition_tag = "/images/edition/tag-01.jpg";
+export const packaging_box = "/images/shipping/packaging-box-01.jpg";
+export const packaging_unboxing = "/images/shipping/packaging-unboxing-01.jpg";
+export const care_cleaning = "/images/care/cleaning-01.jpg";
+export const care_storage = "/images/care/storage-01.jpg";
+export const care_suede_care = "/images/care/suede-care-01.jpg";
+export const care_hardware_care = "/images/care/hardware-care-01.jpg";
+export const batch_02_teaser = "/images/coming-soon/batch-02-teaser-01.jpg";
