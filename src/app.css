@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap');
+@import 'tailwindcss';
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+@theme {
+  --color-soiree-black:   #0d0b08;
+  --color-soiree-dark:    #141008;
+  --color-soiree-surface: #1c1710;
+  --color-soiree-card:    #231d14;
+  --color-soiree-border:  #2e2416;
+  --color-soiree-muted:   #3d3020;
+  --color-soiree-tan:     #c4a882;
+  --color-soiree-gold:    #c8a96e;
+  --color-soiree-cream:   #f2ede4;
+  --color-soiree-warm:    #a08d74;
+  --color-soiree-dimmed:  #6b5c46;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Jost', system-ui, sans-serif;
+}
+
+/* ─── Base ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-soiree-black);
+  color: var(--color-soiree-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+/* ─── Custom Cursor ─────────────────────────────────────────── */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--color-soiree-tan);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, opacity 0.3s ease, width 0.2s ease, height 0.2s ease;
+  z-index: 9999;
+  mix-blend-mode: normal;
+}
+
+.cursor.hovering {
+  width: 32px;
+  height: 32px;
+  opacity: 0.4;
+  background: var(--color-soiree-tan);
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-soiree-dark); }
+::-webkit-scrollbar-thumb { background: var(--color-soiree-muted); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-soiree-dimmed); }
+
+/* ─── Selection ─────────────────────────────────────────────── */
+::selection {
+  background: var(--color-soiree-gold);
+  color: var(--color-soiree-black);
+}
+
+/* ─── Focus ─────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 1px solid var(--color-soiree-tan);
+  outline-offset: 2px;
+}
+
+/* ─── Typography Utilities ──────────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+
+.text-display-xl {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+.text-display-lg {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.0;
+}
+.text-display-md {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.1;
+}
+.text-counter {
+  font-size: clamp(3rem, 10vw, 8rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.text-label-xs {
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+}
+.text-label-sm {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+}
+
+/* ─── Nav underline animation ───────────────────────────────── */
+.nav-item {
+  position: relative;
+}
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.nav-item:hover::after { width: 100%; }
+
+/* ─── Product image hover ───────────────────────────────────── */
+.product-img {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+  filter: brightness(0.85);
+}
+.product-img:hover {
+  transform: scale(1.03);
+  filter: brightness(1);
+}
+
+/* ─── Accordion ─────────────────────────────────────────────── */
+.accordion-content {
+  overflow: hidden;
+  transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ─── Progress bar ──────────────────────────────────────────── */
+.progress-fill {
+  background: linear-gradient(90deg, var(--color-soiree-tan), var(--color-soiree-gold));
+  height: 100%;
+  border-radius: 1px;
+  transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ─── Mobile menu ───────────────────────────────────────────── */
+.mobile-drawer {
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.mobile-drawer.open {
+  transform: translateY(0);
+}
