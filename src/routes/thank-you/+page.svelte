@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from '$lib/seo/Seo.svelte';
   import { onMount } from 'svelte';
   import { animate } from 'motion';
   import { CheckCircle2 } from 'lucide-svelte';
@@ -16,10 +17,13 @@
   });
 </script>
 
-<svelte:head>
-  <title>{$tr.pages.thankYou_title}</title>
-  <meta name="description" content={$tr.pages.thankYou_meta} />
-</svelte:head>
+
+<Seo
+  title={$tr.pages.thankYou_title}
+  description={$tr.pages.thankYou_meta}
+  schemas={[{ type: 'WebSite' }]}
+/>
+
 
 <div
   bind:this={container}

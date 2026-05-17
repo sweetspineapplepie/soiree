@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { locale, setLocale } from '$lib/i18n';
+  import { locale, setLocale, tr } from '$lib/i18n';
   import { browser } from '$app/environment';
 
   // Always render with 'en' initially to match SSR, then update on mount
@@ -24,7 +24,7 @@
   onclick={toggle}
   class="group relative flex h-7 w-14 items-center rounded-full bg-soiree-surface p-[3px] transition-colors border border-soiree-border hover:border-soiree-tan focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-soiree-tan shrink-0"
 >
-  <span class="sr-only">Toggle language</span>
+  <span class="sr-only">{$tr.nav.toggle_language || 'Toggle language'}</span>
   
   <!-- track indicators -->
   <div class="absolute inset-0 flex justify-between px-2 items-center pointer-events-none text-[9px] font-medium tracking-[0.12em] text-soiree-muted">

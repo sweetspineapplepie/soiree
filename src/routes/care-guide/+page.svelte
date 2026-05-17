@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from '$lib/seo/Seo.svelte';
   import { reveal } from '$lib/actions/reveal';
   import {
     care_cleaning,
@@ -9,10 +10,13 @@
   import { tr } from '$lib/i18n';
 </script>
 
-<svelte:head>
-  <title>Care Guide — SOIRÉE SUTTON No.01</title>
-  <meta name="description" content="How to care for your SUTTON No.01. Made to last with the right care." />
-</svelte:head>
+
+<Seo
+  title="Care Guide — SOIRÉE SUTTON No.01"
+  description="How to care for your SUTTON No.01. Made to last with the right care."
+  schemas={[{ type: 'WebSite' }]}
+/>
+
 
 <div style="background-color: #0d0b08; padding-top: 6rem;" class="py-24">
   <div class="max-w-350 mx-auto px-6 lg:px-12">

@@ -37,7 +37,7 @@
           <form class="flex flex-col sm:flex-row gap-0" onsubmit={handleSubmit}>
             <EmailInput bind:value={email} placeholder={$tr.pages.reserve.email_placeholder} id="reserve-email" />
             <Button type="submit" variant="gold" class="whitespace-nowrap">
-              {$tr.pages.reserve.label}
+              {$tr.pages.reserve.button}
             </Button>
           </form>
           <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] mt-4">{$tr.pages.reserve.no_spam}</p>

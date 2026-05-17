@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from '$lib/seo/Seo.svelte';
   import { reveal } from '$lib/actions/reveal';
   import Button from '$lib/components/ui/Button.svelte';
   import EmailInput from '$lib/components/ui/EmailInput.svelte';
@@ -14,10 +15,13 @@
   }
 </script>
 
-<svelte:head>
-  <title>{$tr.pages.batch02.page_title}</title>
-  <meta name="description" content={$tr.pages.batch02.meta} />
-</svelte:head>
+
+<Seo
+  title={$tr.pages.batch02.page_title}
+  description={$tr.pages.batch02.meta}
+  schemas={[{ type: 'WebSite' }]}
+/>
+
 
 <div style="background-color: #0d0b08;" class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-6 py-24">
   <!-- Background image -->
@@ -47,7 +51,7 @@
     </div>
 
     <div use:reveal={{ delay: 0.1 }}>
-      <p class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mb-6">SOIRÉE</p>
+      <p class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mb-6">{$tr.nav.logo}</p>
       <h1 class="font-display text-display-xl text-soiree-cream font-light leading-none mb-3">
         {$tr.pages.batch02.title}
       </h1>

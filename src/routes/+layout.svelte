@@ -47,10 +47,7 @@
   });
 </script>
 
-<svelte:head>
-  <title>SOIRÉE — SUTTON No.01 | Objects of Daily Significance</title>
-  <meta name="description" content="SUTTON No.01 — A structured utility work bag designed for your everyday. Limited to 500 pieces. Reserve your edition now." />
-</svelte:head>
+
 
 <!-- Custom cursor (desktop only) -->
 <div

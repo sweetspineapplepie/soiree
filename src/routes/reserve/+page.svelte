@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from '$lib/seo/Seo.svelte';
   import { reveal } from '$lib/actions/reveal';
   import EmailInput from '$lib/components/ui/EmailInput.svelte';
   import { lifestyle_coffee_scene } from '$lib/assets';
@@ -13,10 +14,13 @@
   }
 </script>
 
-<svelte:head>
-  <title>{$tr.pages.reserve.title}</title>
-  <meta name="description" content={$tr.pages.reserve.meta} />
-</svelte:head>
+
+<Seo
+  title={$tr.pages.reserve.title}
+  description={$tr.pages.reserve.meta}
+  schemas={[{ type: 'WebSite' }]}
+/>
+
 
 <!-- Hero -->
 <div style="background-color: #0d0b08; padding-top: 6rem;" class="min-h-screen flex items-center">
@@ -53,7 +57,7 @@
                 type="submit"
                 class="font-body uppercase text-label-sm tracking-[0.12em] bg-soiree-gold text-soiree-black px-6 py-3 hover:bg-soiree-tan transition-colors duration-300 whitespace-nowrap"
               >
-                {$tr.pages.reserve.label}
+                {$tr.pages.reserve.button}
               </button>
             </form>
             <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] mt-4 uppercase">
@@ -64,18 +68,12 @@
 
         <!-- Stats row -->
         <div use:reveal={{ delay: 0.35 }} class="flex gap-12 mt-16 pt-12 border-t border-soiree-border">
+          {#each $tr.pages.reserve.stats as stat, i}
           <div>
-            <p class="font-display text-4xl text-soiree-cream font-light tabular-nums">500</p>
-            <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">Total pieces</p>
+            <p class="font-display text-4xl {i === 2 ? 'text-soiree-tan' : 'text-soiree-cream'} font-light tabular-nums">{stat.value}</p>
+            <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">{stat.label}</p>
           </div>
-          <div>
-            <p class="font-display text-4xl text-soiree-cream font-light tabular-nums">50</p>
-            <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">Per batch</p>
-          </div>
-          <div>
-            <p class="font-display text-4xl text-soiree-tan font-light tabular-nums">37</p>
-            <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">Reserved</p>
-          </div>
+          {/each}
         </div>
       </div>
 

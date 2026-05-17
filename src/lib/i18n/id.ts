@@ -7,16 +7,18 @@ const id: any = {
     edition: "EDISI 01",
     reserve: "RESERVASI",
     toggle_menu: "Buka menu",
+    toggle_language: "Ganti bahasa",
+    shopee_cta: "Lihat di Shopee ↗"
   },
   hero: {
-    intro_label: "PERKENALAN",
-    label: "Batch 001",
-    title_lines: ["SUTTON", "No.01"],
-    title: "SUTTON No.01 — Tas Kerja Terstruktur",
-    body: "Edisi terbatas untuk penggunaan sehari-hari, dirancang untuk fungsi dan estetika.",
+    intro_label: "Edisi terbatas buatan tangan",
+    title_lines: ["SOIREE"],
+    title: "SOIREE — Edisi terbatas buatan tangan",
+    body: "Dirancang untuk ritual sehari-hari.",
     lifetime: "Produksi dibatasi seumur hidup hingga 500 unit.",
-    batch_reserved: "37/50 terreservasi",
-    cta: "RESERVASI",
+    batch_reserved: "287 / 500 terjual",
+    cta_primary: "Lihat di Shopee ↗",
+    cta_secondary: "Jelajahi Cerita",
     scroll_hint: "Gulir untuk Menemukan",
   },
   footer: {
@@ -88,9 +90,9 @@ const id: any = {
     thankYou_meta:
       "Tempat Anda sudah dicadangkan. Anda akan diberi tahu pertama saat Batch 02 dibuka.",
     thankYou_confirm: "Email konfirmasi telah dikirim ke kotak masuk Anda.",
-    home_title: "SOIRÉE — SUTTON No.01 | Tas Kerja Terstruktur, Edisi Terbatas",
+    home_title: "SOIRÉE — Edisi terbatas buatan tangan",
     home_meta:
-      "Kenalkan SUTTON No.01 — tas kerja utilitas terstruktur. Terbatas 500 unit. Dirancang untuk hari-hari yang dinamis.",
+      "Dirancang untuk ritual sehari-hari. Terbatas 500 unit. Tersedia melalui Shopee.",
     home: {
       story: {
         label: "CERITA",
@@ -165,7 +167,28 @@ const id: any = {
         batch_label: "Batch 001",
         batch_reserved: "37/50 terreservasi",
         cta: "LIHAT PROGRES EDISI",
+        of: "dari",
+        secured: "terjual."
       },
+      shopee: {
+        label: "Mitra Resmi",
+        title: "Tersedia di Shopee",
+        description: "Pembelian saat ini dilayani secara eksklusif melalui toko resmi Shopee kami untuk memberikan Anda pembayaran yang aman, pelacakan pesanan yang terverifikasi, dan pengalaman checkout yang lebih aman.",
+        cta: "KUNJUNGI TOKO SHOPEE",
+        benefits: [
+          { icon: "🔒", title: "Pembayaran Aman", desc: "Dilindungi oleh Garansi Shopee." },
+          { icon: "📦", title: "Pelacakan Pesanan", desc: "Pembaruan pengiriman secara real-time." },
+          { icon: "⭐", title: "Ulasan Terverifikasi", desc: "Baca pengalaman pelanggan sesungguhnya." }
+        ]
+      },
+      shipping: {
+        title: "Pengiriman & Ketersediaan",
+        body_lines: ["Pembelian saat ini dilayani melalui Shopee", "untuk pembayaran aman, pelacakan pesanan,", "dan perlindungan pembeli."],
+        indonesia: { title: "Indonesia", status: "Tersedia" },
+        international: { title: "Wilayah Internasional Tertentu", status: "Tersedia bergantung pada tujuan dan dukungan pengiriman" },
+        contact_prompt: "Butuh pengiriman ke luar wilayah yang didukung? Hubungi kami dan kami akan membantu mencari opsi terbaik.",
+        contact_cta: "HUBUNGI KAMI"
+      }
     },
     details: {
       title: "Rincian — SOIRÉE SUTTON No.01",
@@ -220,19 +243,20 @@ const id: any = {
 };
 
 id.pages.reserve = {
-  title: "Reserve Access — SOIRÉE SUTTON No.01",
-  meta: "Cadangkan tempat Anda untuk SUTTON No.01. Terbatas 50 unit per batch. Bergabunglah dengan daftar akses awal.",
-  label: "RESERVASI",
-  heading_lines: ["Reservasi", "Akses Awal"],
+  title: "Tetap Terhubung — SOIRÉE SUTTON No.01",
+  meta: "Dapatkan pemberitahuan saat edisi masa depan tiba. Bergabunglah dengan daftar akses awal.",
+  label: "TETAP TERHUBUNG",
+  heading_lines: ["Tetap", "Terhubung"],
   intro:
-    "Jadilah yang pertama tahu saat Batch 02 dibuka. Hanya 50 unit per batch. Setelah habis, Anda menunggu batch berikutnya — atau melewatkannya.",
+    "Dapatkan pemberitahuan saat edisi masa depan tiba. Hanya 50 unit per batch. Bergabunglah dengan daftar untuk mendapatkan akses prioritas.",
   submitted_msg: "Anda telah terdaftar. Kami akan menghubungi Anda segera.",
   email_placeholder: "Alamat email Anda",
-  no_spam: "Tidak ada spam. Hanya saat Batch 02 dibuka.",
+  no_spam: "Tidak ada spam. Hanya saat edisi baru dibuka.",
+  button: "KABARI SAYA",
   stats: [
     { value: "500", label: "Total unit" },
     { value: "50", label: "Per batch" },
-    { value: "37", label: "Terreservasi" },
+    { value: "37", label: "Terjual" },
   ],
 };
 
@@ -340,6 +364,11 @@ id.pages.edition01 = {
     "Setiap SUTTON No.01 tiba dalam kotak terstruktur yang kaku, bersarang di dalam dust bag katun. Termasuk Sertifikat Keaslian bernomor Anda—catatan fisik dari produksi terbatasnya.",
   reserved_count: "37",
   reserved_label: "Terreservasi",
+  heading_true: "Edisi terbatas yang sebenarnya.",
+  heading_only: "Hanya 500 yang akan pernah ada.",
+  cert_desc: "Bagian ini adalah bagian dari edisi yang sangat dibatasi hingga 500 unit. Setelah edisi selesai, SUTTON No.01 akan pensiun permanen.",
+  packaging_desc2: "SUTTON No.01 tiba dalam kotak presentasi yang disesuaikan dengan tag bernomor — sebuah ritual kecil yang menggemakan perhatian yang diberikan pada tas di dalamnya.",
+  view_progress: "LIHAT PROGRES PENUH"
 };
 
 id.footer = {
@@ -347,6 +376,12 @@ id.footer = {
   section_info: "INFO",
   section_support: "DUKUNGAN",
   section_connect: "HUBUNGI",
+  trust: {
+    shopee: "Tersedia di Shopee",
+    secure: "Pembayaran aman",
+    tracking: "Pelacakan pesanan",
+    future: "Checkout langsung akan segera hadir."
+  },
   support: {
     faq: "FAQ",
     care_guide: "Panduan Perawatan",

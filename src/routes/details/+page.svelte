@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from '$lib/seo/Seo.svelte';
   import { reveal } from '$lib/actions/reveal';
   import {
     detail_suede,
@@ -37,10 +38,13 @@
   ];
 </script>
 
-  <svelte:head>
-    <title>{$tr.pages.details.title}</title>
-    <meta name="description" content={$tr.pages.details.meta} />
-  </svelte:head>
+  
+<Seo
+  title={$tr.pages.details.title}
+  description={$tr.pages.details.meta}
+  schemas={[{ type: 'Product' }]}
+/>
+
 
 <!-- Page header -->
 <div style="background-color: #0d0b08; padding-top: 6rem;" class="py-24">

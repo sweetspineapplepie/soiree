@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from '$lib/seo/Seo.svelte';
   import { reveal } from '$lib/actions/reveal';
   import ProcessTimeline from '$lib/components/sections/ProcessTimeline.svelte';
   import {
@@ -11,10 +12,13 @@
   import { tr } from '$lib/i18n';
 </script>
 
-<svelte:head>
-  <title>Iteration — SOIRÉE SUTTON No.01</title>
-  <meta name="description" content="The SOIRÉE design process — from ideation to real life. Five steps that made SUTTON No.01." />
-</svelte:head>
+
+<Seo
+  title="Iteration — SOIRÉE SUTTON No.01"
+  description="The SOIRÉE design process — from ideation to real life. Five steps that made SUTTON No.01."
+  schemas={[{ type: 'WebSite' }]}
+/>
+
 
 <!-- Page header -->
 <div style="background-color: #0d0b08; padding-top: 6rem;" class="py-24">

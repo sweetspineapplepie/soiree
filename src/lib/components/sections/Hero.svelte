@@ -53,25 +53,17 @@
       <div class="flex items-center gap-4 mb-2">
         <Badge label={$tr.pages.home.edition.label} />
       </div>
-      <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase mt-3 mb-8">
-        {$tr.hero.lifetime}
+      <p class="font-body text-label-xs text-soiree-tan tracking-[0.12em] uppercase mt-3 mb-8">
+        {$tr.hero.batch_reserved}
       </p>
-
-      <!-- Progress -->
-      <div class="mb-8 max-w-xs">
-        <div class="flex items-center justify-between mb-2">
-          <span class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">{$tr.hero.label}</span>
-          <span class="font-body text-label-xs text-soiree-tan tracking-[0.12em]">{$tr.hero.batch_reserved}</span>
-        </div>
-        <div class="w-full h-0.5 bg-soiree-border relative overflow-hidden">
-          <div class="progress-fill absolute top-0 left-0" style="width: 74%;"></div>
-        </div>
-      </div>
     </div>
 
-    <div style="opacity:0" data-hero-cta>
-      <Button href="/reserve" variant="outline" class="w-fit">
-        {$tr.hero.cta}
+    <div style="opacity:0" data-hero-cta class="flex items-center gap-4">
+      <Button href="https://shopee.co.id" variant="gold" class="w-fit" target="_blank" rel="noopener noreferrer">
+        {$tr.hero.cta_primary}
+      </Button>
+      <Button href="/story" variant="outline" class="w-fit">
+        {$tr.hero.cta_secondary}
       </Button>
     </div>
   </div>

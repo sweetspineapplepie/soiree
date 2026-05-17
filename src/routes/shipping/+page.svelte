@@ -1,14 +1,18 @@
 <script lang="ts">
+  import Seo from '$lib/seo/Seo.svelte';
   import { reveal } from '$lib/actions/reveal';
   import { Truck, RotateCcw } from 'lucide-svelte';
   import { tr } from '$lib/i18n';
   import { packaging_box, packaging_unboxing } from '$lib/assets';
 </script>
 
-<svelte:head>
-  <title>{$tr.pages.shipping.title}</title>
-  <meta name="description" content={$tr.pages.shipping.meta} />
-</svelte:head>
+
+<Seo
+  title={$tr.pages.shipping.title}
+  description={$tr.pages.shipping.meta}
+  schemas={[{ type: 'WebSite' }]}
+/>
+
 
 <div style="background-color: #0d0b08; padding-top: 6rem;" class="py-24">
   <div class="max-w-350 mx-auto px-6 lg:px-12">

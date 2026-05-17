@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Seo from '$lib/seo/Seo.svelte';
   import { reveal } from '$lib/actions/reveal';
   import { AtSign, Link2, Mail } from 'lucide-svelte';
   import Button from '$lib/components/ui/Button.svelte';
@@ -16,10 +17,13 @@
   const inputClass = "w-full bg-transparent border border-soiree-border px-4 py-3 font-body text-sm text-soiree-cream placeholder:text-soiree-dimmed focus:outline-none focus:border-soiree-tan focus:ring-1 focus:ring-soiree-tan transition-all duration-300";
 </script>
 
-<svelte:head>
-  <title>{$tr.pages.contact.page_title}</title>
-  <meta name="description" content={$tr.pages.contact.page_description} />
-</svelte:head>
+
+<Seo
+  title={$tr.pages.contact.page_title}
+  description={$tr.pages.contact.page_description}
+  schemas={[{ type: 'Organization' }]}
+/>
+
 
 <div style="background-color: #0d0b08; padding-top: 6rem;" class="py-24 min-h-screen">
   <div class="max-w-350 mx-auto px-6 lg:px-12">

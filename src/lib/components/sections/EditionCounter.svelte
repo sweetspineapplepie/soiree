@@ -13,14 +13,15 @@
     </div>
 
     <!-- Giant Counter -->
-    <div use:reveal={{ delay: 0.15 }} class="flex items-baseline justify-center gap-3 mb-6">
-      <span class="font-display text-counter text-soiree-cream font-light">
-        <Counter target={37} duration={2} padded={3} />
+    <div use:reveal={{ delay: 0.15 }} class="flex flex-col md:flex-row items-center md:items-baseline justify-center gap-3 md:gap-4 mb-6">
+      <span class="font-display text-display-xl lg:text-counter text-soiree-cream font-light">
+        <Counter target={287} duration={2} padded={0} />
       </span>
-      <span class="font-display text-counter text-soiree-muted font-light">/</span>
-      <span class="font-display text-counter text-soiree-cream font-light">
-        <Counter target={500} duration={2.5} padded={3} />
+      <span class="font-display text-display-md lg:text-display-lg text-soiree-muted font-light italic">{$tr.pages.home.edition.of}</span>
+      <span class="font-display text-display-xl lg:text-counter text-soiree-cream font-light">
+        500
       </span>
+      <span class="font-display text-display-md lg:text-display-lg text-soiree-tan font-light italic mt-2 md:mt-0 md:ml-4">{$tr.pages.home.edition.secured}</span>
     </div>
 
     <!-- Batch info -->

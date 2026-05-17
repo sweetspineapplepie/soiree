@@ -7,16 +7,18 @@ const en: any = {
     edition: "EDITION 01",
     reserve: "RESERVE ACCESS",
     toggle_menu: "Toggle menu",
+    toggle_language: "Toggle language",
+    shopee_cta: "View on Shopee ↗"
   },
   hero: {
-    intro_label: "INTRODUCING",
-    label: "Batch 001",
-    title_lines: ["SUTTON", "No.01"],
-    title: "SUTTON No.01 — Structured Work Bag",
-    body: "A limited-edition everyday carry designed for function and presence.",
+    intro_label: "Limited handcrafted edition",
+    title_lines: ["SOIREE"],
+    title: "SOIREE — Limited handcrafted edition",
+    body: "Designed for everyday rituals.",
     lifetime: "Lifetime production capped at 500 pieces.",
-    batch_reserved: "37/50 reserved",
-    cta: "RESERVE ACCESS",
+    batch_reserved: "287 / 500 secured",
+    cta_primary: "View on Shopee ↗",
+    cta_secondary: "Discover Story",
     scroll_hint: "Scroll to Discover",
   },
   footer: {
@@ -84,9 +86,9 @@ const en: any = {
     thankYou_meta:
       "Your spot is reserved. You'll be the first to know when Batch 02 opens.",
     thankYou_confirm: "A confirmation email has been sent to your inbox.",
-    home_title: "SOIRÉE — SUTTON No.01 | Structured Work Bag, Limited Edition",
+    home_title: "SOIRÉE — Limited handcrafted edition",
     home_meta:
-      "Meet SUTTON No.01 — a structured utility work bag. Limited to 500 pieces. Designed for days that move with you.",
+      "Designed for everyday rituals. Limited to 500 pieces. Available through Shopee.",
     home: {
       story: {
         label: "THE STORY",
@@ -156,7 +158,28 @@ const en: any = {
         batch_label: "Batch 001",
         batch_reserved: "37/50 reserved",
         cta: "VIEW EDITION PROGRESS",
+        of: "of",
+        secured: "secured."
       },
+      shopee: {
+        label: "Official Partner",
+        title: "Available through Shopee",
+        description: "Purchases are currently handled exclusively through our official Shopee store to provide you with secure payments, verified order tracking, and a safer checkout experience.",
+        cta: "VISIT SHOPEE STORE",
+        benefits: [
+          { icon: "🔒", title: "Secure Payments", desc: "Protected by Shopee Guarantee." },
+          { icon: "📦", title: "Order Tracking", desc: "Real-time shipping updates." },
+          { icon: "⭐", title: "Verified Reviews", desc: "Read real customer experiences." }
+        ]
+      },
+      shipping: {
+        title: "Shipping & Availability",
+        body_lines: ["Purchases are currently handled through Shopee", "for secure payments, order tracking,", "and buyer protection."],
+        indonesia: { title: "Indonesia", status: "Available" },
+        international: { title: "Selected International Regions", status: "Available depending on destination and shipping support" },
+        contact_prompt: "Need shipping outside supported regions? Contact us and we'll help find the best option.",
+        contact_cta: "CONTACT US"
+      }
     },
     details: {
       title: "Details — SOIRÉE SUTTON No.01",
@@ -211,15 +234,16 @@ const en: any = {
 };
 
 en.pages.reserve = {
-  title: "Reserve Access — SOIRÉE SUTTON No.01",
-  meta: "Reserve your spot for SUTTON No.01. Limited to 50 units per batch. Join the early access list.",
-  label: "RESERVE",
-  heading_lines: ["Reserve", "Early Access"],
+  title: "Stay Informed — SOIRÉE SUTTON No.01",
+  meta: "Get notified when future editions arrive. Join the early access list.",
+  label: "STAY INFORMED",
+  heading_lines: ["Stay", "Informed"],
   intro:
-    "Be the first to know when Batch 02 opens. Only 50 units per batch. Once they're gone, you wait for the next — or you miss out.",
+    "Get notified when future editions arrive. Only 50 units per batch. Join the list to secure your priority access.",
   submitted_msg: "You're on the list. You'll hear from us soon.",
   email_placeholder: "Your email address",
-  no_spam: "No spam. Only when Batch 02 opens.",
+  no_spam: "No spam. Only when new editions open.",
+  button: "NOTIFY ME",
   stats: [
     { value: "500", label: "Total pieces" },
     { value: "50", label: "Per batch" },
@@ -331,6 +355,11 @@ en.pages.edition01 = {
     "Every SUTTON No.01 arrives in a rigid structured box, nestled within a cotton dust bag. Included is your numbered Certificate of Authenticity—a physical record of its limited production.",
   reserved_count: "37",
   reserved_label: "Reserved",
+  heading_true: "A true limited edition.",
+  heading_only: "Only 500 will ever exist.",
+  cert_desc: "This piece is part of an edition strictly limited to 500 units. Once the edition is complete, SUTTON No.01 will be permanently retired.",
+  packaging_desc2: "SUTTON No.01 arrives in a tailored presentation box with a numbered tag — a small ritual that echoes the attention given to the bag inside.",
+  view_progress: "VIEW FULL PROGRESS"
 };
 
 en.footer = {
@@ -338,6 +367,12 @@ en.footer = {
   section_info: "INFO",
   section_support: "SUPPORT",
   section_connect: "CONNECT",
+  trust: {
+    shopee: "Available on Shopee",
+    secure: "Secure payments",
+    tracking: "Order tracking",
+    future: "Future direct checkout coming soon."
+  },
   support: {
     faq: "FAQ",
     care_guide: "Care Guide",

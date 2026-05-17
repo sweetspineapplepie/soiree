@@ -1,14 +1,18 @@
 <script lang="ts">
+  import Seo from '$lib/seo/Seo.svelte';
   import { reveal } from '$lib/actions/reveal';
   import TheStory from '$lib/components/sections/TheStory.svelte';
   import { lifestyle_coworking } from '$lib/assets';
   import { tr } from '$lib/i18n';
 </script>
 
-<svelte:head>
-  <title>The Story — SOIRÉE SUTTON No.01</title>
-  <meta name="description" content="The story behind SUTTON No.01 — made for days that move with you. Our philosophy: less, but intentional." />
-</svelte:head>
+
+<Seo
+  title="The Story — SOIRÉE SUTTON No.01"
+  description="The story behind SUTTON No.01 — made for days that move with you. Our philosophy: less, but intentional."
+  schemas={[{ type: 'WebSite' }]}
+/>
+
 
 <!-- Page hero -->
 <div style="background-color: #0d0b08; padding-top: 6rem;" class="py-24">

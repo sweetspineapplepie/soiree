@@ -3,9 +3,10 @@
 
   const infoLinks = [
     { key: 'story', href: '/story' },
-    { key: 'iteration', href: '/iteration' },
     { key: 'details', href: '/details' },
-    { key: 'edition', href: '/edition-01' },
+    // FUTURE ECOMMERCE
+    // { key: 'iteration', href: '/iteration' },
+    // { key: 'edition', href: '/edition-01' },
   ];
 
   const supportLinks = [
@@ -25,14 +26,20 @@
 <footer style="background-color: #141008; border-top: 1px solid #2e2416;" class="mt-auto">
   <div class="max-w-350 mx-auto px-6 lg:px-12 py-16">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-      <!-- Branding -->
-      <div class="col-span-2 lg:col-span-1">
+      <!-- Branding & Trust -->
+      <div class="col-span-2 lg:col-span-1 pr-4">
         <a href="/" class="font-display font-light tracking-[0.12em] text-sm text-soiree-cream hover:text-soiree-tan transition-colors duration-300">
           SOIRÉE
         </a>
-        <p class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mt-3 leading-7 whitespace-pre-line">
+        <p class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mt-3 leading-7 whitespace-pre-line mb-6">
           {$tr.footer.brandline}
         </p>
+        <div class="space-y-2 font-body text-xs text-soiree-warm leading-6">
+          <p class="flex items-center gap-2"><span class="text-soiree-tan">✓</span> {$tr.footer.trust.shopee}</p>
+          <p class="flex items-center gap-2"><span class="text-soiree-tan">✓</span> {$tr.footer.trust.secure}</p>
+          <p class="flex items-center gap-2"><span class="text-soiree-tan">✓</span> {$tr.footer.trust.tracking}</p>
+          <p class="text-soiree-dimmed italic mt-2">{$tr.footer.trust.future}</p>
+        </div>
       </div>
 
       <!-- Info -->

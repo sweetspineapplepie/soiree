@@ -9,9 +9,12 @@
 
   const navLinks = [
      { key: 'story', href: '/story' },
-     { key: 'iteration', href: '/iteration' },
      { key: 'details', href: '/details' },
-     { key: 'edition', href: '/edition-01' },
+     { key: 'faq', href: '/faq' },
+     { key: 'contact', href: '/contact' },
+     // FUTURE ECOMMERCE
+     // { key: 'iteration', href: '/iteration' },
+     // { key: 'edition', href: '/edition-01' },
   ];
 
   onMount(() => {
@@ -54,7 +57,7 @@
           class="nav-item font-body uppercase text-label-sm text-soiree-warm hover:text-soiree-cream transition-colors duration-300 relative"
           class:!text-soiree-cream={$page.url.pathname === link.href}
         >
-            {$translations.nav[link.key]}
+            {$translations.nav[link.key] || (link.key === 'faq' ? 'FAQ' : 'CONTACT')}
         </a>
       {/each}
         <!-- Language toggle -->
@@ -65,12 +68,14 @@
 
     <!-- Desktop CTA -->
     <div class="hidden lg:block">
+      <!-- FUTURE ECOMMERCE: href="/reserve" -->
       <a
-        href="/reserve"
+        href="https://shopee.co.id"
+        target="_blank" rel="noopener noreferrer"
         class="group relative overflow-hidden border border-soiree-cream/60 px-5 py-2 flex items-center gap-2 hover:border-soiree-tan transition-colors duration-300"
       >
         <span class="font-body uppercase text-label-sm tracking-[0.12em] text-soiree-cream transition-transform duration-300 group-hover:-translate-x-1">
-          {$translations.nav.reserve}
+          {$translations.nav.shopee_cta || 'View on Shopee ↗'}
         </span>
         <span class="text-soiree-cream transition-transform duration-300 group-hover:translate-x-1 text-sm">→</span>
       </a>
@@ -107,17 +112,22 @@
         onclick={closeMenu}
         class="font-body uppercase text-label-sm text-soiree-warm hover:text-soiree-cream transition-colors duration-300 tracking-[0.12em]"
       >
-            {$translations.nav[link.key]}
+            {$translations.nav[link.key] || (link.key === 'faq' ? 'FAQ' : 'CONTACT')}
       </a>
     {/each}
-    <div class="w-full max-w-xs border-t border-soiree-border pt-8 mt-2 flex justify-center">
+    <div class="mt-4 flex items-center justify-center">
+      <LanguageToggle />
+    </div>
+    <div class="w-full max-w-xs border-t border-soiree-border pt-8 mt-4 flex justify-center">
+      <!-- FUTURE ECOMMERCE: href="/reserve" -->
       <a
-        href="/reserve"
+        href="https://shopee.co.id"
+        target="_blank" rel="noopener noreferrer"
         onclick={closeMenu}
-        class="group border border-soiree-cream/60 px-8 py-3 flex items-center gap-2"
+        class="group border border-soiree-cream/60 px-8 py-3 flex items-center gap-2 hover:border-soiree-tan transition-colors duration-300"
       >
-        <span class="font-body uppercase text-label-sm tracking-[0.12em] text-soiree-cream">{$translations.nav.reserve}</span>
-        <span class="text-soiree-cream">→</span>
+        <span class="font-body uppercase text-label-sm tracking-[0.12em] text-soiree-cream">{$translations.nav.shopee_cta || 'View on Shopee ↗'}</span>
+        <span class="text-soiree-cream group-hover:translate-x-1 transition-transform duration-300">→</span>
       </a>
     </div>
   </div>
