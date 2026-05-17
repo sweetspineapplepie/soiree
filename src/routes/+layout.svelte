@@ -5,6 +5,7 @@
   import { fade } from 'svelte/transition';
   import Navbar from '$lib/components/layout/Navbar.svelte';
   import Footer from '$lib/components/layout/Footer.svelte';
+  import { initializeLocale } from '$lib/i18n';
 
   let { children } = $props();
 
@@ -13,33 +14,35 @@
   let hovering = $state(false);
 
   onMount(() => {
+    initializeLocale();
+
     const handleMouseMove = (e: MouseEvent) => {
       cursorX = e.clientX;
       cursorY = e.clientY;
     };
 
-    const handleMouseEnter = () => { hovering = true; };
-    const handleMouseLeave = () => { hovering = false; };
-
-    document.addEventListener('mousemove', handleMouseMove);
-
-    // Track hoverable elements
-    const addHoverListeners = () => {
-      const interactives = document.querySelectorAll('a, button, [role="button"]');
-      interactives.forEach(el => {
-        el.addEventListener('mouseenter', handleMouseEnter);
-        el.addEventListener('mouseleave', handleMouseLeave);
-      });
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && target.closest && target.closest('a, button, [role="button"]')) {
+        hovering = true;
+      }
     };
-    addHoverListeners();
 
-    // Re-add on navigation (simple approach)
-    const observer = new MutationObserver(addHoverListeners);
-    observer.observe(document.body, { childList: true, subtree: true });
+    const handleMouseOut = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && target.closest && target.closest('a, button, [role="button"]')) {
+        hovering = false;
+      }
+    };
+
+    document.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('mouseover', handleMouseOver, { passive: true });
+    document.addEventListener('mouseout', handleMouseOut, { passive: true });
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
-      observer.disconnect();
+      document.removeEventListener('mouseover', handleMouseOver);
+      document.removeEventListener('mouseout', handleMouseOut);
     };
   });
 </script>

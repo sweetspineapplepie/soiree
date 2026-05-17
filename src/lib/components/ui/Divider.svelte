@@ -2,4 +2,4 @@
   let { class: className = '' } = $props();
 </script>
 
-<div class="w-full h-px bg-[#2e2416] {className}"></div>
+<div class="w-full h-px bg-soiree-border {className}"></div>

@@ -6,11 +6,12 @@
   import EditionCounter from '$lib/components/sections/EditionCounter.svelte';
   import ProcessTimeline from '$lib/components/sections/ProcessTimeline.svelte';
   import ReserveAccess from '$lib/components/sections/ReserveAccess.svelte';
+  import { tr } from '$lib/i18n';
 </script>
 
 <svelte:head>
-  <title>SOIRÉE — SUTTON No.01 | Structured Work Bag, Limited Edition</title>
-  <meta name="description" content="Meet SUTTON No.01 — a structured utility work bag. Limited to 500 pieces. Designed for days that move with you." />
+  <title>{$tr.pages.home_title}</title>
+  <meta name="description" content={$tr.pages.home_meta} />
 </svelte:head>
 
 <Hero />

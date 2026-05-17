@@ -84,30 +84,31 @@ body {
 .font-body    { font-family: var(--font-body); }
 
 .text-display-xl {
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  font-size: clamp(4.5rem, 6vw, 5.75rem);
+  line-height: 1.0;
+  letter-spacing: -0.01em;
 }
 .text-display-lg {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  line-height: 1.0;
+  font-size: clamp(2.625rem, 4vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
 }
 .text-display-md {
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  line-height: 1.1;
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  line-height: 1.2;
 }
 .text-counter {
   font-size: clamp(3rem, 10vw, 8rem);
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
 }
 .text-label-xs {
-  font-size: 0.625rem;
-  letter-spacing: 0.2em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
 }
 .text-label-sm {
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
 }
 
 /* ─── Nav underline animation ───────────────────────────────── */

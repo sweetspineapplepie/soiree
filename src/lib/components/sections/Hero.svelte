@@ -2,8 +2,10 @@
   import { onMount } from 'svelte';
   import { animate } from 'motion';
   import Badge from '$lib/components/ui/Badge.svelte';
+  import Button from '$lib/components/ui/Button.svelte';
   import Divider from '$lib/components/ui/Divider.svelte';
   import { hero_main_desktop, hero_main_mobile } from '$lib/assets';
+  import { tr } from '$lib/i18n';
 
   let parallaxY = $state(0);
   const motionAnimate = animate as any;
@@ -28,60 +30,56 @@
   style="background-color: #0d0b08;"
 >
   <!-- Left Content -->
-  <div class="relative z-10 flex flex-col justify-center w-full lg:w-[40%] px-8 sm:px-12 lg:px-16 xl:px-24 py-28 lg:py-20">
+  <div class="relative z-10 flex flex-col justify-center w-full lg:w-2/5 px-8 sm:px-12 lg:px-16 xl:px-24 py-28 lg:py-20">
     <div style="opacity:0" data-hero-label>
-      <p class="font-body uppercase text-label-xs text-[#6b5c46] tracking-[0.2em] mb-6">
-        INTRODUCING
+      <p class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mb-6">
+        {$tr.hero.intro_label}
       </p>
     </div>
 
     <div style="opacity:0" data-hero-title>
-      <h1 class="font-display text-display-xl text-[#f2ede4] font-light mb-6 leading-none">
-        SUTTON<br/>No.01
+      <h1 class="font-display text-display-xl text-soiree-cream font-light mb-6 leading-none">
+        {#each $tr.hero.title_lines as line, idx}
+          {line}{#if idx < $tr.hero.title_lines.length - 1}<br/>{/if}
+        {/each}
       </h1>
     </div>
 
     <div style="opacity:0" data-hero-body>
-      <p class="font-body font-light text-[#a08d74] text-sm leading-relaxed mb-8 max-w-xs">
-        Structured utility work bag.<br/>Designed for your everyday.
+      <p class="font-body font-light text-soiree-warm text-sm leading-7 mb-8 max-w-xs">
+        {$tr.hero.body}
       </p>
       <Divider class="mb-8" />
       <div class="flex items-center gap-4 mb-2">
-        <Badge label="EDITION 01" />
+        <Badge label={$tr.pages.home.edition.label} />
       </div>
-      <p class="font-body text-label-xs text-[#6b5c46] tracking-widest uppercase mt-3 mb-8">
-        Lifetime production capped at 500 pieces.
+      <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase mt-3 mb-8">
+        {$tr.hero.lifetime}
       </p>
 
       <!-- Progress -->
       <div class="mb-8 max-w-xs">
         <div class="flex items-center justify-between mb-2">
-          <span class="font-body text-label-xs text-[#6b5c46] tracking-widest uppercase">Batch 001</span>
-          <span class="font-body text-label-xs text-[#c4a882] tracking-widest">37/50 reserved</span>
+          <span class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">{$tr.hero.label}</span>
+          <span class="font-body text-label-xs text-soiree-tan tracking-[0.12em]">{$tr.hero.batch_reserved}</span>
         </div>
-        <div class="w-full h-[2px] bg-[#2e2416] relative overflow-hidden">
+        <div class="w-full h-0.5 bg-soiree-border relative overflow-hidden">
           <div class="progress-fill absolute top-0 left-0" style="width: 74%;"></div>
         </div>
       </div>
     </div>
 
     <div style="opacity:0" data-hero-cta>
-      <a
-        href="/reserve"
-        class="group relative overflow-hidden border border-[rgba(242,237,228,0.6)] px-8 py-3 flex items-center gap-2 w-fit hover:border-[#c4a882] transition-colors duration-300"
-      >
-        <span class="font-body uppercase text-label-sm tracking-widest text-[#f2ede4] transition-transform duration-300 group-hover:-translate-x-1">
-          RESERVE ACCESS
-        </span>
-        <span class="text-[#f2ede4] transition-transform duration-300 group-hover:translate-x-1 text-sm">→</span>
-      </a>
+      <Button href="/reserve" variant="outline" class="w-fit">
+        {$tr.hero.cta}
+      </Button>
     </div>
   </div>
 
   <!-- Right Image -->
-  <div class="hidden lg:block absolute right-0 top-0 bottom-0 w-[60%] overflow-hidden">
+  <div class="hidden lg:block absolute right-0 top-0 bottom-0 w-3/5 overflow-hidden">
     <div style="opacity:0; height:100%;" data-hero-image>
-      <img
+      <img decoding="async"
         src={hero_main_desktop}
         alt="SUTTON No.01 - Structured utility work bag"
         class="w-full h-full object-cover"
@@ -92,15 +90,15 @@
     <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, #0d0b08 0%, transparent 25%);"></div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-      <span class="font-body text-label-xs text-[#6b5c46] tracking-[0.2em] uppercase">Scroll to Discover</span>
-      <div class="w-px h-8 bg-[#6b5c46] animate-pulse"></div>
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+      <span class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">{$tr.hero.scroll_hint}</span>
+      <div class="w-px h-8 bg-soiree-dimmed animate-pulse"></div>
     </div>
   </div>
 
   <!-- Mobile image -->
   <div class="lg:hidden absolute inset-0 z-0 opacity-25">
-    <img
+    <img decoding="async"
       src={hero_main_mobile}
       alt="SUTTON No.01"
       class="w-full h-full object-cover"

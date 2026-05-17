@@ -1,44 +1,48 @@
 <script lang="ts">
+  import { tr } from '$lib/i18n';
+
   const infoLinks = [
-    { label: 'The Story', href: '/story' },
-    { label: 'Iteration', href: '/iteration' },
-    { label: 'Details', href: '/details' },
-    { label: 'Edition 01', href: '/edition-01' },
+    { key: 'story', href: '/story' },
+    { key: 'iteration', href: '/iteration' },
+    { key: 'details', href: '/details' },
+    { key: 'edition', href: '/edition-01' },
   ];
+
   const supportLinks = [
-    { label: 'FAQ', href: '/faq' },
-    { label: 'Care Guide', href: '/care-guide' },
-    { label: 'Shipping & Returns', href: '/shipping' },
-    { label: 'Contact Us', href: '/contact' },
+    { key: 'faq', href: '/faq' },
+    { key: 'care_guide', href: '/care-guide' },
+    { key: 'shipping', href: '/shipping' },
+    { key: 'contact', href: '/contact' },
   ];
+
   const connectLinks = [
-    { label: 'Instagram', href: '#' },
-    { label: 'Pinterest', href: '#' },
-    { label: 'Email', href: '/contact' },
+    { key: 'instagram', href: 'https://instagram.com/soiree.studio', external: true },
+    { key: 'pinterest', href: 'https://pinterest.com/soiree.studio', external: true },
+    { key: 'email', href: '/contact', external: false },
   ];
 </script>
 
 <footer style="background-color: #141008; border-top: 1px solid #2e2416;" class="mt-auto">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-16">
+  <div class="max-w-350 mx-auto px-6 lg:px-12 py-16">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
       <!-- Branding -->
       <div class="col-span-2 lg:col-span-1">
-        <a href="/" class="font-display font-light tracking-[0.25em] text-sm text-[#f2ede4] hover:text-[#c4a882] transition-colors duration-300">
+        <a href="/" class="font-display font-light tracking-[0.12em] text-sm text-soiree-cream hover:text-soiree-tan transition-colors duration-300">
           SOIRÉE
         </a>
-        <p class="font-body uppercase text-label-xs text-[#6b5c46] tracking-widest mt-3 leading-relaxed">
-          OBJECTS OF DAILY<br/>SIGNIFICANCE
+        <p class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mt-3 leading-7 whitespace-pre-line">
+          {$tr.footer.brandline}
         </p>
       </div>
 
       <!-- Info -->
       <div>
-        <h4 class="font-body uppercase text-label-xs text-[#6b5c46] tracking-widest mb-5">INFO</h4>
+        <h4 class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mb-5">{$tr.footer.section_info}</h4>
         <ul class="flex flex-col gap-3">
           {#each infoLinks as link}
             <li>
-              <a href={link.href} class="nav-item font-body text-xs text-[#a08d74] hover:text-[#f2ede4] transition-colors duration-300 relative">
-                {link.label}
+              <a href={link.href} class="nav-item font-body text-xs text-soiree-warm hover:text-soiree-cream transition-colors duration-300 relative">
+                {$tr.nav[link.key]}
               </a>
             </li>
           {/each}
@@ -47,12 +51,12 @@
 
       <!-- Support -->
       <div>
-        <h4 class="font-body uppercase text-label-xs text-[#6b5c46] tracking-widest mb-5">SUPPORT</h4>
+        <h4 class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mb-5">{$tr.footer.section_support}</h4>
         <ul class="flex flex-col gap-3">
           {#each supportLinks as link}
             <li>
-              <a href={link.href} class="nav-item font-body text-xs text-[#a08d74] hover:text-[#f2ede4] transition-colors duration-300 relative">
-                {link.label}
+              <a href={link.href} class="nav-item font-body text-xs text-soiree-warm hover:text-soiree-cream transition-colors duration-300 relative">
+                {$tr.footer.support[link.key]}
               </a>
             </li>
           {/each}
@@ -61,12 +65,17 @@
 
       <!-- Connect -->
       <div>
-        <h4 class="font-body uppercase text-label-xs text-[#6b5c46] tracking-widest mb-5">CONNECT</h4>
+        <h4 class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mb-5">{$tr.footer.section_connect}</h4>
         <ul class="flex flex-col gap-3">
           {#each connectLinks as link}
             <li>
-              <a href={link.href} class="nav-item font-body text-xs text-[#a08d74] hover:text-[#f2ede4] transition-colors duration-300 relative">
-                {link.label}
+              <a
+                href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noreferrer noopener' : undefined}
+                class="nav-item font-body text-xs text-soiree-warm hover:text-soiree-cream transition-colors duration-300 relative"
+              >
+                {$tr.footer.connect[link.key]}
               </a>
             </li>
           {/each}
@@ -76,11 +85,11 @@
 
     <!-- Bottom bar -->
     <div style="border-top: 1px solid #2e2416;" class="mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="font-body text-label-xs text-[#6b5c46] tracking-widest uppercase">
-        © 2025 SOIRÉE — All rights reserved.
+      <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">
+        {$tr.footer.copyright}
       </p>
-      <p class="font-body text-label-xs text-[#6b5c46] tracking-widest uppercase">
-        SUTTON No.01
+      <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">
+        {$tr.footer.product_label}
       </p>
     </div>
   </div>

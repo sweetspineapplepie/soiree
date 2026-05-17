@@ -13,23 +13,9 @@
     texture_grain,
     texture_noise,
   } from '$lib/assets';
+  import { tr } from '$lib/i18n';
 
-  const details = [
-    'Premium synthetic leather with soft touch',
-    'Suede signature panel',
-    'YKK zipper',
-    'Detachable & adjustable strap',
-    'Gold-tone hardware',
-    'Protective metal feet',
-  ];
-
-  const specs = [
-    { label: 'Laptop compartment', desc: 'up to 14 inch' },
-    { label: 'Bottle sleeve', desc: 'keeps it upright' },
-    { label: 'Multiple pockets', desc: 'for daily essentials' },
-    { label: 'Key leash', desc: 'never lose it again' },
-  ];
-
+  // map assets into translation-driven data
   const detailImages = [
     product_front,
     product_back,
@@ -39,37 +25,36 @@
   ];
 
   const detailIcons = [
-    { src: detail_suede, label: 'Suede panel', desc: 'Subtle texture meets luxurious contrast.' },
-    { src: detail_zipper, label: 'YKK zipper', desc: 'Reliable motion with premium hardware.' },
-    { src: detail_hardware, label: 'Gold trim', desc: 'Softly gleaming details at every edge.' },
+    { src: detail_suede, key: 0 },
+    { src: detail_zipper, key: 1 },
+    { src: detail_hardware, key: 2 },
   ];
 
   const textures = [
-    { src: texture_leather, label: 'Leather grain', desc: 'A structured surface with warm depth.' },
-    { src: texture_grain, label: 'Fine grain', desc: 'A tactile finish that ages beautifully.' },
-    { src: texture_noise, label: 'Subtle noise', desc: 'A dark patina-like surface for quiet luxury.' },
+    { src: texture_leather, key: 0 },
+    { src: texture_grain, key: 1 },
+    { src: texture_noise, key: 2 },
   ];
 </script>
 
-<svelte:head>
-  <title>Details — SOIRÉE SUTTON No.01</title>
-  <meta name="description" content="SUTTON No.01 details — thoughtful inside and out. Premium materials, YKK zippers, gold hardware." />
-</svelte:head>
+  <svelte:head>
+    <title>{$tr.pages.details.title}</title>
+    <meta name="description" content={$tr.pages.details.meta} />
+  </svelte:head>
 
 <!-- Page header -->
 <div style="background-color: #0d0b08; padding-top: 6rem;" class="py-24">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+  <div class="max-w-350 mx-auto px-6 lg:px-12">
     <div class="grid grid-cols-1 lg:grid-cols-[1.3fr_0.9fr] gap-16 items-center">
       <div use:reveal>
-        <p class="font-body uppercase text-label-xs text-[#6b5c46] tracking-[0.2em] mb-4">SOIRÉE</p>
-        <h1 class="font-display text-display-xl text-[#f2ede4] font-light leading-none mb-6">Details</h1>
-        <p class="font-body text-sm text-[#a08d74] leading-relaxed max-w-lg">
-          Discover the thoughtful details that make SUTTON No.01 feel refined from every angle, inside and out.
+        <p class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mb-4">{$tr.pages.details.header_label}</p>
+        <h1 class="font-display text-display-xl text-soiree-cream font-light leading-none mb-6">{$tr.pages.details.heading_lines[0]}</h1>
+        <p class="font-body text-sm text-soiree-warm leading-7 max-w-lg">
+          {$tr.pages.details.intro}
         </p>
       </div>
-      <div use:reveal={{ delay: 0.15 }} class="overflow-hidden aspect-[4/5] rounded-none border border-[#2e2416]">
-        <img
-          src={product_interior}
+      <div use:reveal={{ delay: 0.15 }} class="overflow-hidden aspect-4/5 rounded-none border border-soiree-border">
+        <img loading="lazy" decoding="async"           src={product_interior}
           alt="Interior detail of SUTTON No.01"
           class="product-img w-full h-full object-cover"
         />
@@ -80,19 +65,24 @@
 
 <!-- Main details section -->
 <section style="background-color: #0d0b08;" class="pb-24">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+  <div class="max-w-350 mx-auto px-6 lg:px-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
       <!-- Left -->
       <div use:reveal>
-        <p class="font-body uppercase text-label-xs text-[#6b5c46] tracking-[0.2em] mb-6">DETAILS</p>
-        <h2 class="font-display text-display-md text-[#f2ede4] font-light italic leading-tight mb-10">
-          Thoughtful inside<br/>and out.
+        <p class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mb-6">{$tr.pages.details.section_label}</p>
+        <h2 class="font-display text-display-md text-soiree-cream font-light italic leading-tight mb-10">
+          {#each $tr.pages.details.section_heading_lines as line, idx}
+            {line}
+            {#if idx < $tr.pages.details.section_heading_lines.length - 1}
+              <br />
+            {/if}
+          {/each}
         </h2>
 
         <ul class="flex flex-col gap-4">
-          {#each details as item}
-            <li class="flex items-start gap-3 font-body text-sm text-[#a08d74] leading-relaxed">
-              <span class="text-[#c4a882] mt-0.5 flex-shrink-0">•</span>
+          {#each $tr.pages.details.details_list as item}
+            <li class="flex items-start gap-3 font-body text-sm text-soiree-warm leading-7">
+              <span class="text-soiree-tan mt-0.5 shrink-0">•</span>
               {item}
             </li>
           {/each}
@@ -103,9 +93,8 @@
       <div use:reveal={{ delay: 0.2 }} class="grid grid-cols-2 gap-2">
         {#each detailImages as src, i}
           <div class="overflow-hidden aspect-square">
-            <img
-              {src}
-              alt="Product detail {i + 1}"
+            <img loading="lazy" decoding="async"               {src}
+              alt="{$tr.pages.details.product_image_alt} {i + 1}"
               class="product-img w-full h-full object-cover"
             />
           </div>
@@ -114,13 +103,13 @@
 
       <div use:reveal={{ delay: 0.3 }} class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10">
         {#each detailIcons as icon}
-          <div class="rounded-3xl border border-[#2e2416] overflow-hidden bg-[#141008]">
+          <div class="rounded-3xl border border-soiree-border overflow-hidden bg-soiree-dark">
             <div class="overflow-hidden aspect-square">
-              <img src={icon.src} alt={icon.label} class="w-full h-full object-cover" />
+              <img loading="lazy" decoding="async" src={icon.src} alt={$tr.pages.details.detail_icons[icon.key].label} class="w-full h-full object-cover" />
             </div>
             <div class="p-5">
-              <h3 class="font-body uppercase text-label-xs text-[#f2ede4] tracking-[0.2em] mb-2">{icon.label}</h3>
-              <p class="font-body text-sm text-[#a08d74] leading-relaxed">{icon.desc}</p>
+              <h3 class="font-body uppercase text-label-xs text-soiree-cream tracking-[0.12em] mb-2">{$tr.pages.details.detail_icons[icon.key].label}</h3>
+              <p class="font-body text-sm text-soiree-warm leading-7">{$tr.pages.details.detail_icons[icon.key].desc}</p>
             </div>
           </div>
         {/each}
@@ -130,23 +119,23 @@
 </section>
 
 <section style="background-color: #1c1710; border-top: 1px solid #2e2416;" class="py-24">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+  <div class="max-w-350 mx-auto px-6 lg:px-12">
     <div use:reveal class="text-center mb-14">
-      <p class="font-body uppercase text-label-xs text-[#6b5c46] tracking-[0.2em] mb-4">MATERIAL STUDY</p>
-      <h2 class="font-display text-display-md text-[#f2ede4] font-light italic leading-tight">
-        Textures that define the mood.
+      <p class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mb-4">{$tr.pages.details.material_label}</p>
+      <h2 class="font-display text-display-md text-soiree-cream font-light italic leading-tight">
+        {$tr.pages.details.material_heading}
       </h2>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {#each textures as texture}
-        <div use:reveal={{ delay: 0.15 }} class="rounded-3xl overflow-hidden border border-[#2e2416] bg-[#141008]">
+        <div use:reveal={{ delay: 0.15 }} class="rounded-3xl overflow-hidden border border-soiree-border bg-soiree-dark">
           <div class="overflow-hidden h-56">
-            <img src={texture.src} alt={texture.label} class="w-full h-full object-cover" />
+            <img loading="lazy" decoding="async" src={texture.src} alt={$tr.pages.details.textures[texture.key].label} class="w-full h-full object-cover" />
           </div>
           <div class="p-5">
-            <h3 class="font-body uppercase text-label-xs text-[#f2ede4] tracking-[0.2em] mb-2">{texture.label}</h3>
-            <p class="font-body text-sm text-[#a08d74] leading-relaxed">{texture.desc}</p>
+            <h3 class="font-body uppercase text-label-xs text-soiree-cream tracking-[0.12em] mb-2">{$tr.pages.details.textures[texture.key].label}</h3>
+            <p class="font-body text-sm text-soiree-warm leading-7">{$tr.pages.details.textures[texture.key].desc}</p>
           </div>
         </div>
       {/each}
@@ -156,14 +145,14 @@
 
 <!-- Specs bottom strip -->
 <section style="background-color: #1c1710; border-top: 1px solid #2e2416; border-bottom: 1px solid #2e2416;">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-    <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#2e2416]">
-      {#each specs as spec, i}
+  <div class="max-w-350 mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-soiree-border">
+      {#each $tr.pages.details.specs as spec, i}
         <div use:reveal={{ delay: i * 0.08 }} class="flex flex-col items-center text-center gap-2 py-10 px-6">
-          <span class="font-body uppercase text-label-sm text-[#f2ede4] tracking-widest">
+          <span class="font-body uppercase text-label-sm text-soiree-cream tracking-[0.12em]">
             {spec.label}
           </span>
-          <span class="font-body text-xs text-[#6b5c46]">{spec.desc}</span>
+          <span class="font-body text-xs text-soiree-dimmed">{spec.desc}</span>
         </div>
       {/each}
     </div>

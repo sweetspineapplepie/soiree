@@ -2,6 +2,7 @@
   import { reveal } from '$lib/actions/reveal';
   import EmailInput from '$lib/components/ui/EmailInput.svelte';
   import { lifestyle_coffee_scene } from '$lib/assets';
+  import { tr } from '$lib/i18n';
 
   let email = $state('');
   let submitted = $state(false);
@@ -13,70 +14,74 @@
 </script>
 
 <svelte:head>
-  <title>Reserve Access — SOIRÉE SUTTON No.01</title>
-  <meta name="description" content="Reserve your spot for SUTTON No.01. Limited to 50 units per batch. Join the early access list." />
+  <title>{$tr.pages.reserve.title}</title>
+  <meta name="description" content={$tr.pages.reserve.meta} />
 </svelte:head>
 
 <!-- Hero -->
 <div style="background-color: #0d0b08; padding-top: 6rem;" class="min-h-screen flex items-center">
-  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 w-full">
+  <div class="max-w-350 mx-auto px-6 lg:px-12 w-full">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-24">
       <!-- Left -->
       <div>
         <div use:reveal>
-          <p class="font-body uppercase text-label-xs text-[#6b5c46] tracking-[0.2em] mb-6">RESERVE</p>
-          <h1 class="font-display text-display-xl text-[#f2ede4] font-light leading-none mb-8">
-            Reserve<br/>Early Access
+          <p class="font-body uppercase text-label-xs text-soiree-dimmed tracking-[0.12em] mb-6">{$tr.pages.reserve.label}</p>
+          <h1 class="font-display text-display-xl text-soiree-cream font-light leading-none mb-8">
+            {#each $tr.pages.reserve.heading_lines as line, idx}
+              {line}
+              {#if idx < $tr.pages.reserve.heading_lines.length - 1}
+                <br />
+              {/if}
+            {/each}
           </h1>
-          <p class="font-body text-sm text-[#a08d74] leading-relaxed max-w-sm mb-10">
-            Be the first to know when Batch 02 opens. Only 50 units per batch. Once they're gone, you wait for the next — or you miss out.
+          <p class="font-body text-sm text-soiree-warm leading-7 max-w-sm mb-10">
+            {$tr.pages.reserve.intro}
           </p>
         </div>
 
         <div use:reveal={{ delay: 0.2 }}>
-          {#if submitted}
+            {#if submitted}
             <div style="border: 1px solid #2e2416;" class="px-6 py-5">
-              <p class="font-body text-sm text-[#c4a882] tracking-wide">
-                You're on the list. You'll hear from us soon.
+              <p class="font-body text-sm text-soiree-tan tracking-wide">
+                {$tr.pages.reserve.submitted_msg}
               </p>
             </div>
           {:else}
             <form class="flex flex-col sm:flex-row gap-0 max-w-md" onsubmit={handleSubmit}>
-              <EmailInput bind:value={email} placeholder="Your email address" id="reserve-page-email" />
+              <EmailInput bind:value={email} placeholder={$tr.pages.reserve.email_placeholder} id="reserve-page-email" />
               <button
                 type="submit"
-                class="font-body uppercase text-label-sm tracking-widest bg-[#c8a96e] text-[#0d0b08] px-6 py-3 hover:bg-[#c4a882] transition-colors duration-300 whitespace-nowrap"
+                class="font-body uppercase text-label-sm tracking-[0.12em] bg-soiree-gold text-soiree-black px-6 py-3 hover:bg-soiree-tan transition-colors duration-300 whitespace-nowrap"
               >
-                RESERVE
+                {$tr.pages.reserve.label}
               </button>
             </form>
-            <p class="font-body text-label-xs text-[#6b5c46] tracking-widest mt-4 uppercase">
-              No spam. Only when Batch 02 opens.
+            <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] mt-4 uppercase">
+              {$tr.pages.reserve.no_spam}
             </p>
           {/if}
         </div>
 
         <!-- Stats row -->
-        <div use:reveal={{ delay: 0.35 }} class="flex gap-12 mt-16 pt-12 border-t border-[#2e2416]">
+        <div use:reveal={{ delay: 0.35 }} class="flex gap-12 mt-16 pt-12 border-t border-soiree-border">
           <div>
-            <p class="font-display text-[2.5rem] text-[#f2ede4] font-light tabular-nums">500</p>
-            <p class="font-body text-label-xs text-[#6b5c46] tracking-widest uppercase">Total pieces</p>
+            <p class="font-display text-4xl text-soiree-cream font-light tabular-nums">500</p>
+            <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">Total pieces</p>
           </div>
           <div>
-            <p class="font-display text-[2.5rem] text-[#f2ede4] font-light tabular-nums">50</p>
-            <p class="font-body text-label-xs text-[#6b5c46] tracking-widest uppercase">Per batch</p>
+            <p class="font-display text-4xl text-soiree-cream font-light tabular-nums">50</p>
+            <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">Per batch</p>
           </div>
           <div>
-            <p class="font-display text-[2.5rem] text-[#c4a882] font-light tabular-nums">37</p>
-            <p class="font-body text-label-xs text-[#6b5c46] tracking-widest uppercase">Reserved</p>
+            <p class="font-display text-4xl text-soiree-tan font-light tabular-nums">37</p>
+            <p class="font-body text-label-xs text-soiree-dimmed tracking-[0.12em] uppercase">Reserved</p>
           </div>
         </div>
       </div>
 
       <!-- Right -->
-      <div use:reveal={{ delay: 0.15 }} class="overflow-hidden aspect-[3/4] rounded-3xl border border-[#2e2416] bg-[#141008]">
-        <img
-          src={lifestyle_coffee_scene}
+      <div use:reveal={{ delay: 0.15 }} class="overflow-hidden aspect-3/4 rounded-3xl border border-soiree-border bg-soiree-dark">
+        <img loading="lazy" decoding="async"           src={lifestyle_coffee_scene}
           alt="Sutton bag with coffee scene for reserve access"
           class="product-img w-full h-full object-cover"
         />
